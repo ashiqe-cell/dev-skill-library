@@ -1,65 +1,97 @@
-# Dev Skill Library
+<div align="center">
+  <img src="assets/library-hero.svg" alt="Dev Skill Library: thoughtful skills for capable coding agents" width="100%">
+  <br>
+  <a href="https://github.com/ashiqe-cell/dev-skill-library/actions/workflows/validate.yml"><img src="https://github.com/ashiqe-cell/dev-skill-library/actions/workflows/validate.yml/badge.svg" alt="Build status"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-2c684f?style=flat-square" alt="MIT license"></a>
+  <a href="skills/"><img src="https://img.shields.io/badge/curated%20skills-1-cb5b42?style=flat-square" alt="One curated skill"></a>
+  <a href="CONTRIBUTING.md"><img src="https://img.shields.io/badge/contributions-open-d5a441?style=flat-square" alt="Contributions welcome"></a>
+</div>
 
-**Practical, reviewable skills for coding agents.**
+<div align="center">
+  <h3>Reusable workflows for Codex, Claude, and coding agents.</h3>
+  <p>Small, useful packages with clear provenance, safe defaults, and tests you can run.</p>
+  <p><a href="#catalog">Explore the catalog</a> · <a href="#quick-install">Install a skill</a> · <a href="CONTRIBUTING.md">Contribute</a></p>
+</div>
 
-[![Validate](https://github.com/ashiqe-cell/dev-skill-library/actions/workflows/validate.yml/badge.svg)](https://github.com/ashiqe-cell/dev-skill-library/actions/workflows/validate.yml)
-[![License](https://img.shields.io/badge/catalog%20license-MIT-2f6f55)](LICENSE)
-[![Skills](https://img.shields.io/badge/skills-1-9b4c35)](#skill-catalog)
-[![Contributions](https://img.shields.io/badge/contributions-welcome-d99a36)](CONTRIBUTING.md)
+---
 
-Dev Skill Library is a curated, versioned home for reusable agent skills. Each package has clear ownership, provenance, licensing, install instructions, and automated validation. The goal is to make good workflows portable across Codex, Claude, and compatible tools without copying unreviewed material into every project.
+## Why this library
 
-## Start here
+Agent skills are easier to trust when you can see who made them, what they do, and how to install them. This project turns useful workflows into versioned packages, then checks the catalog and installer automatically.
 
-Browse the [skill catalog](#skill-catalog), then read the skill's `SKILL.md` and package README before using it. Skills are instructions and tools, not a guarantee of a particular result. Review scope and permissions before running any tool that touches a live system.
+| Each skill includes | The library provides |
+|:--|:--|
+| Clear scope and usage instructions | Provenance and license records |
+| Version, maintainer, and source revision | Safe, preview-first installation |
+| Tests or examples for its behavior | Automated checks on every change |
 
-### Install a skill
+## Quick install
 
-Requires Python 3.10 or later. Preview the installation first:
+Preview a package first. The command only prints the proposed destination:
 
-```powershell
+```bash
 python scripts/install_skill.py --skill web-vuln-auditor --target codex
 ```
 
-Apply it after reviewing the destination:
+Install after reviewing the destination:
 
-```powershell
+```bash
 python scripts/install_skill.py --skill web-vuln-auditor --target codex --apply
 ```
 
-The installer supports `codex`, `claude`, and `agents`. It copies only one named skill, defaults to a dry run, and refuses to overwrite an existing installation. See [installation details](docs/INSTALLATION.md).
+Replace `codex` with `claude` or `agents` for another supported target. The installer requires Python 3.10 or later, copies one selected package, and refuses to overwrite an existing installation. [See all options.](docs/INSTALLATION.md)
 
-## Skill catalog
+## Catalog
 
-| Skill | What it does | License | Version | Package |
-|---|---|---|---|---|
-| [Web Vulnerability Auditor](skills/web-vuln-auditor/) | Passive review of public websites for browser-visible security, privacy, configuration, and SEO risks | MIT | 0.2.0 | [Open](skills/web-vuln-auditor/) |
+<table>
+  <thead>
+    <tr><th align="left">Skill</th><th align="left">Use it for</th><th align="left">Version</th><th align="left">License</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="skills/web-vuln-auditor/"><strong>Web Vulnerability Auditor</strong></a></td>
+      <td>Passive first-pass reviews of public websites for security, privacy, configuration, and SEO spam indicators</td>
+      <td><code>0.2.0</code></td>
+      <td><a href="skills/web-vuln-auditor/LICENSE">MIT</a></td>
+    </tr>
+  </tbody>
+</table>
 
-Want a skill added? Open a [skill request](https://github.com/ashiqe-cell/dev-skill-library/issues/new?template=skill_request.yml). Third-party skills are not copied into this catalog without compatible licensing, attribution, and a clear maintenance plan.
+> Findings are indicators for human review. The auditor is not an exploit scanner, penetration test, or compliance certification.
 
-## How this library stays dependable
+### Add a skill you need
 
-- **Provenance first:** every package records who maintains it, where it came from, the source revision, and its license.
-- **Small packages:** each skill has its own metadata, instructions, license, and supporting files.
-- **Safe installation:** dry run by default, explicit skill selection, no silent overwrites.
-- **Automated checks:** CI checks metadata, package layout, documentation conventions, and installer behavior on every pull request.
-- **Reviewable updates:** version history and change notes make skill changes visible to maintainers and users.
+Tell us the recurring task and the developer workflow it should improve. [Open a skill request](https://github.com/ashiqe-cell/dev-skill-library/issues/new?template=skill_request.yml).
 
-Read the [architecture](docs/ARCHITECTURE.md), [provenance policy](docs/PROVENANCE.md), and [release process](docs/RELEASING.md) for the full model.
+## Designed for trust
+
+**Attribution is part of the package.** Company-authored, adapted, and third-party skills are labeled distinctly. Source revisions and license files travel with the code.
+
+**Installation is deliberate.** The default is a dry run. The installer accepts an exact package name, blocks path traversal, and stops if a destination already exists.
+
+**Quality is checked continuously.** GitHub Actions validates package metadata and runs the installer tests for every pull request and push to `main`.
+
+Learn more in the [architecture](docs/ARCHITECTURE.md), [provenance policy](docs/PROVENANCE.md), and [release guide](docs/RELEASING.md).
 
 ## Contribute
 
-Bug reports, tested improvements, and new skills are welcome. Start with [CONTRIBUTING.md](CONTRIBUTING.md), follow the package template, and include evidence that a proposed workflow works. Please star the repository if it saves you time or helps your team. Stars help other developers discover it, while useful issues and pull requests help improve it.
+Have a correction, a tested workflow, or a package worth sharing? Start with the [contribution guide](CONTRIBUTING.md), then open an issue or pull request. We review ownership, licensing, safety, and behavior before adding a package.
 
-## Repository map
+If this library is useful to you, a GitHub star helps other developers find it. Sharing a reproducible issue or a thoughtful contribution helps make it better.
+
+## Project map
 
 ```text
-skills/                 Curated, installable skill packages
-catalog/                Machine-readable catalog and local inventory snapshot
-scripts/                Validation and safe installation utilities
-tests/                  Installer and catalog tests
-docs/                   Architecture, provenance, installation, release guidance
+skills/                 Curated agent skill packages
+catalog/                Package index and names-only local inventory
+scripts/                Validation and preview-first installer
+tests/                  Catalog, install, and safety checks
+docs/                   Architecture, provenance, install, and release guides
 .github/workflows/      Continuous integration
 ```
 
-The files under `catalog/installed-skills.*` are a names-only snapshot from one developer machine. They are for discovery, not a claim that those skills are owned by this project.
+The installed-skill files are a names-only snapshot from one machine. They are useful for discovery and do not claim ownership of those skills.
+
+<div align="center">
+  <sub>Built for useful workflows, transparent origins, and better agent tooling.</sub>
+</div>
