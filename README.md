@@ -1,4 +1,6 @@
 <div align="center">
+  <img src="assets/dev-skill-library-icon.png" alt="Dev Skill Library icon" width="104">
+  <br><br>
   <img src="assets/library-hero.svg" alt="Dev Skill Library: thoughtful skills for capable coding agents" width="100%">
   <br>
   <a href="https://github.com/ashiqe-cell/dev-skill-library/actions/workflows/validate.yml"><img src="https://github.com/ashiqe-cell/dev-skill-library/actions/workflows/validate.yml/badge.svg" alt="Build status"></a>
@@ -25,21 +27,24 @@ Agent skills are easier to trust when you can see who made them, what they do, a
 | Version, maintainer, and source revision | Safe, preview-first installation |
 | Tests or examples for its behavior | Automated checks on every change |
 
-## Quick install
+## Install across coding agents
 
-Preview a package first. The command only prints the proposed destination:
+Use the community skills CLI to install this package for Codex, Claude Code, Cursor, GitHub Copilot, and other supported agents:
+
+```bash
+npx skills add ashiqe-cell/dev-skill-library --skill web-vuln-auditor -g
+```
+
+Find the project on [skills.sh](https://skills.sh), or search from your terminal with `npx skills find web-vuln-auditor`. The directory is driven by the skills ecosystem, so real installs and continued maintenance help discovery. There is no separate publish button for the directory.
+
+Prefer a manual, preview-first install? Use the library installer:
 
 ```bash
 python scripts/install_skill.py --skill web-vuln-auditor --target codex
-```
-
-Install after reviewing the destination:
-
-```bash
 python scripts/install_skill.py --skill web-vuln-auditor --target codex --apply
 ```
 
-Replace `codex` with `claude` or `agents` for another supported target. The installer requires Python 3.10 or later, copies one selected package, and refuses to overwrite an existing installation. [See all options.](docs/INSTALLATION.md)
+The installer requires Python 3.10 or later and refuses to overwrite an existing installation. [See all options.](docs/INSTALLATION.md) For public marketplace publishing routes, see [distribution guide](docs/DISTRIBUTION.md).
 
 ## Catalog
 
