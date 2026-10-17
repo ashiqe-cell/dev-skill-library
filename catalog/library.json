@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "name": "Dev Skill Library",
+  "description": "Curated, versioned skills for coding agents",
+  "catalog_file": "skills.csv",
+  "packages_root": "../skills",
+  "supported_targets": ["codex", "claude", "agents"]
+}

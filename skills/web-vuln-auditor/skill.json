@@ -1,0 +1,16 @@
+{
+  "name": "web-vuln-auditor",
+  "display_name": "Web Vulnerability Auditor",
+  "description": "Passively review public websites for browser-visible security weaknesses, privacy risks, exposed configuration, and SEO spam indicators.",
+  "version": "0.2.0",
+  "classification": "company-authored",
+  "maintainer": "ashiqevm0496",
+  "license": "MIT",
+  "source": {
+    "repository": "https://github.com/ashiqevm0496/web-vuln-auditor",
+    "revision": "fed0eabe8413d01c45473857bf80a816594bad30"
+  },
+  "entrypoint": "scripts/audit_site.py",
+  "minimum_python": "3.10",
+  "targets": ["codex", "claude", "agents"]
+}

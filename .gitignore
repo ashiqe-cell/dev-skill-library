@@ -11,3 +11,8 @@ Thumbs.db
 *.pem
 *.key
 secrets.*
+
+# Python and generated audit outputs
+__pycache__/
+*.py[cod]
+skills/*/reports/

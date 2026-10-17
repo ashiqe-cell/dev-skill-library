@@ -1,0 +1,26 @@
+name: Skill request
+description: Propose a reusable agent skill
+title: "[Skill request]: "
+labels: [skill request]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: User problem
+      description: What repeatable task should the skill help with?
+    validations:
+      required: true
+  - type: textarea
+    id: ownership
+    attributes:
+      label: Ownership and source
+      description: State company-authored, adapted, or third-party. Include source URL, revision, license, and maintainer.
+    validations:
+      required: true
+  - type: textarea
+    id: safety
+    attributes:
+      label: Safety and validation
+      description: What permissions, external effects, and tests does it need?
+    validations:
+      required: true

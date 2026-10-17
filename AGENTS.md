@@ -1,3 +1,7 @@
-# Dev Skill Library
+# Repository guidance
 
-Shared home for reusable coding skills across our AI coding assistants and projects. See [catalog](catalog/README.md) for ownership and provenance, and [skills](skills/) for the canonical skill collection.
+Keep reusable packages under `skills/<name>/`. Each package needs `SKILL.md`, `skill.json`, `README.md`, and `LICENSE`. Update `catalog/skills.csv` when adding or versioning packages.
+
+Preserve ownership, license, source URL, and immutable revision for adapted or third-party work. Do not publish secrets, machine-specific paths, customer data, or generated audit reports.
+
+Before finishing a change, run `python scripts/validate_library.py` and `python -m unittest discover -s tests -v`. Keep README and skill documentation free of em dashes.

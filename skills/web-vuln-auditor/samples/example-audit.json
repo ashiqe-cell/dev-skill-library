@@ -1,0 +1,84 @@
+{
+  "target": "https://example.com",
+  "scanned_at": "2026-05-06T10:38:02.563388+00:00",
+  "status_code": 200,
+  "final_url": "https://example.com",
+  "headers": {
+    "Date": "Wed, 06 May 2026 10:37:46 GMT",
+    "Content-Type": "text/html",
+    "Transfer-Encoding": "chunked",
+    "Connection": "close",
+    "Server": "cloudflare",
+    "last-modified": "Fri, 01 May 2026 03:27:47 GMT",
+    "allow": "GET, HEAD",
+    "Accept-Ranges": "bytes",
+    "Age": "3534",
+    "cf-cache-status": "HIT",
+    "CF-RAY": "9f775a00992bf7ba-MRS"
+  },
+  "findings": [
+    {
+      "severity": "High",
+      "title": "Missing content-security-policy",
+      "category": "Headers",
+      "evidence": "https://example.com does not return the content-security-policy response header.",
+      "remediation": "Set a strict Content-Security-Policy that avoids unsafe-inline and unsafe-eval."
+    },
+    {
+      "severity": "Medium",
+      "title": "Missing strict-transport-security",
+      "category": "Headers",
+      "evidence": "https://example.com does not return the strict-transport-security response header.",
+      "remediation": "Enable HSTS for HTTPS responses with a long max-age and includeSubDomains if appropriate."
+    },
+    {
+      "severity": "Medium",
+      "title": "Missing x-frame-options",
+      "category": "Headers",
+      "evidence": "https://example.com does not return the x-frame-options response header.",
+      "remediation": "Set X-Frame-Options to DENY or SAMEORIGIN unless framing is required."
+    },
+    {
+      "severity": "Medium",
+      "title": "Missing x-content-type-options",
+      "category": "Headers",
+      "evidence": "https://example.com does not return the x-content-type-options response header.",
+      "remediation": "Set X-Content-Type-Options to nosniff."
+    },
+    {
+      "severity": "Low",
+      "title": "Missing referrer-policy",
+      "category": "Headers",
+      "evidence": "https://example.com does not return the referrer-policy response header.",
+      "remediation": "Set Referrer-Policy to strict-origin-when-cross-origin or stricter."
+    },
+    {
+      "severity": "Low",
+      "title": "Missing permissions-policy",
+      "category": "Headers",
+      "evidence": "https://example.com does not return the permissions-policy response header.",
+      "remediation": "Set Permissions-Policy to restrict powerful browser features."
+    },
+    {
+      "severity": "Info",
+      "title": "Server banner exposed",
+      "category": "Headers",
+      "evidence": "Server header discloses: cloudflare",
+      "remediation": "Reduce unnecessary version disclosure in public headers where possible."
+    }
+  ],
+  "discovered_endpoints": [],
+  "framework_versions": [],
+  "trackers": [],
+  "cookies": [],
+  "csp_analysis": {
+    "present": false,
+    "directives": {},
+    "issues": [
+      "missing content-security-policy"
+    ]
+  },
+  "js_secret_hits": [],
+  "exposed_config_files": [],
+  "notes": []
+}
