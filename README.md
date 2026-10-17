@@ -10,22 +10,43 @@
 </div>
 
 <div align="center">
-  <h3>Reusable workflows for Codex, Claude, and coding agents.</h3>
-  <p>Small, useful packages with clear provenance, safe defaults, and tests you can run.</p>
-  <p><a href="#catalog">Explore the catalog</a> · <a href="#quick-install">Install a skill</a> · <a href="CONTRIBUTING.md">Contribute</a></p>
+  <h3>Stop rebuilding the same developer workflow.</h3>
+  <p>Package a useful task once. Reuse it across coding agents with clear sources, safe setup, and repeatable steps.</p>
+  <p><a href="#the-problem">See the problem and solution</a> · <a href="#install-across-coding-agents">Try a skill</a> · <a href="CONTRIBUTING.md">Contribute</a></p>
 </div>
 
 ---
 
-## Why this library
+## The problem
 
-Agent skills are easier to trust when you can see who made them, what they do, and how to install them. This project turns useful workflows into versioned packages, then checks the catalog and installer automatically.
+Developers are using more coding agents, but useful workflows often live in scattered prompts, personal folders, or tool-specific setups. Teams repeat the same investigations, get inconsistent steps, and have little context about who wrote a shared skill or what its scripts will do.
 
-| Each skill includes | The library provides |
+## The solution
+
+Dev Skill Library packages repeatable developer work as portable, reviewable skills. Each package explains its scope, records ownership and source, and includes the files needed to use it. A preview-first installer and automated checks make it easier to adopt and maintain.
+
+| Common pain | What the library changes |
 |:--|:--|
-| Clear scope and usage instructions | Provenance and license records |
-| Version, maintainer, and source revision | Safe, preview-first installation |
-| Tests or examples for its behavior | Automated checks on every change |
+| Recreate the same task instructions for each agent | Keep the workflow once in a portable `SKILL.md` package |
+| Unsure whether a skill is safe or legally reusable | Show scope, maintainer, license, and source revision beside it |
+| Setup differs across machines and tools | Offer repeatable installation with a dry run and overwrite protection |
+| Skill updates can silently change behavior | Validate package metadata and run checks in CI |
+
+### A concrete example: first-pass website security review
+
+The Web Vulnerability Auditor gives a developer a repeatable way to review a public site for visible security and privacy signals, such as headers, cookies, exposed configuration, script patterns, tracking, and SEO spam. It creates a report with observations that a person can verify and act on.
+
+```text
+Public website URL
+       ↓
+Run the documented, passive audit
+       ↓
+Review evidence and risk indicators
+       ↓
+Prioritize fixes and verify them
+```
+
+This is a first-pass aid, not a penetration test or a guarantee that a site is secure. [See the skill and its limits.](skills/web-vuln-auditor/)
 
 ## Install across coding agents
 
@@ -35,7 +56,7 @@ Use the community skills CLI to install this package for Codex, Claude Code, Cur
 npx skills add ashiqe-cell/dev-skill-library --skill web-vuln-auditor -g
 ```
 
-Find the project on [skills.sh](https://skills.sh), or search from your terminal with `npx skills find web-vuln-auditor`. The directory is driven by the skills ecosystem, so real installs and continued maintenance help discovery. There is no separate publish button for the directory.
+Find the project on [skills.sh](https://skills.sh), or search from your terminal with `npx skills find web-vuln-auditor`. The CLI supports multiple coding agents. Continued real-world use and maintenance help developers discover and trust the package.
 
 Prefer a manual, preview-first install? Use the library installer:
 
