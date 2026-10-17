@@ -13,11 +13,13 @@ Implemented in this restructure:
 
 ## Phase 2: Validate actual adoption
 
-Proposed, not completed:
+Completed: nine labeled synthetic header/cookie cases with missed and unexpected finding checks, a tested benchmark harness, and a [host verification record](HOST_VALIDATION.md). The previous Windows/Linux CI matrix passed. See [benchmark scope and known limitations](../benchmarks/web-audit/README.md).
+
+Still pending:
 
 - Run the same authorized task in Codex and Claude Code and record host versions, setup and output limitations.
 - Ask early users where installation or report interpretation fails; make feedback optional and do not add telemetry by default.
-- Add a labeled fixture benchmark covering positive and negative cases before making detection-quality claims.
+- Expand the fixture benchmark to policy alternatives and independently reviewed labels before making detection-quality claims.
 - Publish a versioned release after the expanded CI checks pass and release notes are reviewed.
 
 Acceptance: reproducible host instructions, documented failures, and a benchmark that exposes false positives as well as detections.

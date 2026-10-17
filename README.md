@@ -5,7 +5,7 @@
   <p>Reusable agent instructions, runnable tools, and examples you can inspect.</p>
   <a href="https://github.com/ashiqe-cell/dev-skill-library/actions/workflows/validate.yml"><img src="https://github.com/ashiqe-cell/dev-skill-library/actions/workflows/validate.yml/badge.svg" alt="Validation status"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-2c684f" alt="MIT"></a>
-  <p><a href="#try-it">Try it</a> · <a href="#choose-a-task">Choose a task</a> · <a href="docs/README.md">Documentation</a> · <a href="CONTRIBUTING.md">Contribute</a></p>
+  <p><a href="#try-it">Try it</a> Â· <a href="#choose-a-task">Choose a task</a> Â· <a href="docs/README.md">Documentation</a> Â· <a href="CONTRIBUTING.md">Contribute</a></p>
 </div>
 
 ## The problem we solve
@@ -66,6 +66,10 @@ The installer refuses to overwrite an existing package. Targets are `codex`, `cl
 | Local Python installer | Isolated copy, dry run, overwrite protection and installed execution tests. |
 | Agent execution | Instructions are portable; end-to-end runs in every host have not been verified. |
 | Marketplace listings | No marketplace approval or directory indexing is claimed. |
+
+## Check the evidence
+
+Run `python scripts/benchmark_auditor.py` from the checkout to evaluate nine labeled synthetic header and cookie cases. The harness reports missed and unexpected findings. Read the [scope and known limitations](benchmarks/web-audit/README.md) and [host validation record](docs/HOST_VALIDATION.md). Passing fixtures do not establish real-world detection accuracy.
 
 ## What makes a package worth sharing?
 

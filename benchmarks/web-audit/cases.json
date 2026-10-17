@@ -1,0 +1,106 @@
+[
+  {
+    "name": "complete-header-baseline",
+    "analyzer": "headers",
+    "headers": {
+      "Content-Security-Policy": "default-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'",
+      "Strict-Transport-Security": "max-age=31536000; includeSubDomains",
+      "X-Frame-Options": "DENY",
+      "X-Content-Type-Options": "nosniff",
+      "Referrer-Policy": "no-referrer",
+      "Permissions-Policy": "camera=(), microphone=()"
+    },
+    "expected_titles": []
+  },
+  {
+    "name": "header-name-case-insensitivity",
+    "analyzer": "headers",
+    "headers": {
+      "content-security-policy": "default-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'",
+      "strict-transport-security": "max-age=31536000; includeSubDomains",
+      "x-frame-options": "DENY",
+      "x-content-type-options": "nosniff",
+      "referrer-policy": "no-referrer",
+      "permissions-policy": "camera=(), microphone=()"
+    },
+    "expected_titles": []
+  },
+  {
+    "name": "missing-csp",
+    "analyzer": "headers",
+    "headers": {
+      "Strict-Transport-Security": "max-age=31536000; includeSubDomains",
+      "X-Frame-Options": "DENY",
+      "X-Content-Type-Options": "nosniff",
+      "Referrer-Policy": "no-referrer",
+      "Permissions-Policy": "camera=(), microphone=()"
+    },
+    "expected_titles": [
+      "Missing content-security-policy"
+    ]
+  },
+  {
+    "name": "unsafe-inline-policy",
+    "analyzer": "headers",
+    "headers": {
+      "Content-Security-Policy": "default-src 'self'; script-src 'unsafe-inline'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'",
+      "Strict-Transport-Security": "max-age=31536000; includeSubDomains",
+      "X-Frame-Options": "DENY",
+      "X-Content-Type-Options": "nosniff",
+      "Referrer-Policy": "no-referrer",
+      "Permissions-Policy": "camera=(), microphone=()"
+    },
+    "expected_titles": [
+      "Content-Security-Policy needs hardening"
+    ]
+  },
+  {
+    "name": "short-hsts",
+    "analyzer": "headers",
+    "headers": {
+      "Content-Security-Policy": "default-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'",
+      "Strict-Transport-Security": "max-age=300",
+      "X-Frame-Options": "DENY",
+      "X-Content-Type-Options": "nosniff",
+      "Referrer-Policy": "no-referrer",
+      "Permissions-Policy": "camera=(), microphone=()"
+    },
+    "expected_titles": [
+      "HSTS max-age is shorter than a year"
+    ]
+  },
+  {
+    "name": "protected-session-cookie",
+    "analyzer": "cookies",
+    "headers": {
+      "Set-Cookie": "session=fixture; Secure; HttpOnly; SameSite=Lax"
+    },
+    "expected_titles": []
+  },
+  {
+    "name": "unprotected-session-cookie",
+    "analyzer": "cookies",
+    "headers": {
+      "Set-Cookie": "session=fixture; Path=/"
+    },
+    "expected_titles": [
+      "Cookie session is missing recommended flags"
+    ]
+  },
+  {
+    "name": "multiple-cookies",
+    "analyzer": "cookies",
+    "headers": {
+      "Set-Cookie": "session=fixture; Secure; HttpOnly; SameSite=Lax\npreferences=fixture; Secure; SameSite=Lax"
+    },
+    "expected_titles": [
+      "Cookie preferences is missing recommended flags"
+    ]
+  },
+  {
+    "name": "no-set-cookie",
+    "analyzer": "cookies",
+    "headers": {},
+    "expected_titles": []
+  }
+]
