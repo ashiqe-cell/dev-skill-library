@@ -13,6 +13,24 @@ PYTHON = sys.executable
 
 
 class LibraryTests(unittest.TestCase):
+    def test_installed_demo_is_offline_and_portable(self) -> None:
+        with tempfile.TemporaryDirectory() as temp:
+            result = self.run_installer("--skill", "web-vuln-auditor", "--target", "codex", "--home", temp, "--apply")
+            self.assertEqual(result.returncode, 0, result.stderr)
+            scripts = Path(temp) / ".codex/skills/web-vuln-auditor/scripts"
+            code = (
+                "import sys, socket; from unittest.mock import patch; "
+                "sys.path.insert(0, sys.argv[1]); import demo; "
+                "guard=patch.object(socket, 'socket', side_effect=AssertionError('Network forbidden')); "
+                "guard.start(); report=demo.build_demo(); "
+                "assert report.status_code == 200; assert report.findings; "
+                "assert not report.csp_analysis['present']; "
+                "assert 'SYNTHETIC OFFLINE' in report.notes[0]; "
+                "assert report.target == 'https://demo.example'; guard.stop()"
+            )
+            run = subprocess.run([PYTHON, "-c", code, str(scripts)], cwd=temp, capture_output=True, text=True)
+            self.assertEqual(run.returncode, 0, run.stderr)
+
     def run_installer(self, *args: str) -> subprocess.CompletedProcess[str]:
         return subprocess.run(
             [PYTHON, str(ROOT / "scripts" / "install_skill.py"), *args],

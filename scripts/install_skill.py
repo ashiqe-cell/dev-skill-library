@@ -49,7 +49,7 @@ def main() -> int:
         print("Dry run only. Add --apply to copy the package.")
         return 0
     destination_root.mkdir(parents=True, exist_ok=True)
-    shutil.copytree(package, destination, ignore=shutil.ignore_patterns("__pycache__", "*.pyc"))
+    shutil.copytree(package, destination, ignore=shutil.ignore_patterns("__pycache__", "*.pyc", "reports"))
     print("Installation complete.")
     return 0
 

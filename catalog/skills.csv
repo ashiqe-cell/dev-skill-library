@@ -1,2 +1,2 @@
 name,version,classification,maintainer,source_url,source_ref,license,package_path,status
-web-vuln-auditor,0.2.0,company-authored,ashiqevm0496,https://github.com/ashiqevm0496/web-vuln-auditor,fed0eabe8413d01c45473857bf80a816594bad30,MIT,skills/web-vuln-auditor,maintained
+web-vuln-auditor,0.3.0,company-authored,ashiqevm0496,https://github.com/ashiqevm0496/web-vuln-auditor,fed0eabe8413d01c45473857bf80a816594bad30,MIT,skills/web-vuln-auditor,maintained

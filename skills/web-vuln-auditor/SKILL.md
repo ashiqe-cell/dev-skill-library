@@ -17,18 +17,18 @@ Use this skill when asked to assess a public website from its externally visible
 
 ## Run
 
-From the library root:
+Resolve the skill directory from the location of this installed `SKILL.md`, then run from that directory. Do not assume the original repository checkout exists:
 
 ```bash
-python skills/web-vuln-auditor/scripts/audit_site.py https://example.com
+python scripts/audit_site.py https://example.com
 ```
 
 Optional output formats and controls:
 
 ```bash
-python skills/web-vuln-auditor/scripts/audit_site.py https://example.com --format json
-python skills/web-vuln-auditor/scripts/audit_site.py https://example.com --output audit.md
-python skills/web-vuln-auditor/scripts/audit_site.py https://example.com --timeout 12
+python scripts/audit_site.py https://example.com --format json
+python scripts/audit_site.py https://example.com --output audit.md
+python scripts/audit_site.py https://example.com --timeout 12
 ```
 
 Read the generated report as evidence, verify important findings independently, and explain any limitations. The tool provides a passive first-pass review, not a penetration test or compliance certification.

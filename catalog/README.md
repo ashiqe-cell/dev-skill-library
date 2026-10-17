@@ -1,7 +1,5 @@
-# Catalog files
+# Maintained catalog
 
-- `library.json` describes the catalog schema and supported installation targets.
-- `skills.csv` indexes the curated packages and records version, classification, maintainer, source revision, license, and package path.
-- `installed-skills.csv` and `installed-skills.md` are a names-only snapshot from one machine. They are not package entries and do not imply ownership.
+`skills.csv` is the source of truth for installable packages. `library.json` describes the schema and installation targets. Every package has version, license and source metadata.
 
-The validator checks package manifests against `skills.csv`. Add a new package under `../skills/<name>/` and update the catalog row in the same change.
+The historical names-only machine inventory has moved to [archive/local-inventory](../archive/local-inventory/). Those names are not included in the package count.

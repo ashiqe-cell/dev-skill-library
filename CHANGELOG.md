@@ -1,3 +1,7 @@
+# 0.3.0
+
+Added offline demo, portable installed instructions, task-based onboarding, contribution template, research-backed roadmap and expanded CI. Historical inventory moved outside the maintained catalog. Installer excludes generated reports.
+
 # Changelog
 
 ## Unreleased

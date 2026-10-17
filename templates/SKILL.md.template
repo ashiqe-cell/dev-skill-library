@@ -1,0 +1,29 @@
+---
+name: replace-with-task-name
+description: "Explain the task and when an agent should choose it."
+---
+
+# Task name
+
+## Use when
+
+Describe a specific developer problem and example request.
+
+## Inputs and boundaries
+
+Specify required inputs, permissions, side effects and unsupported cases.
+
+## Workflow
+
+1. Validate the inputs.
+2. Resolve supporting scripts relative to this installed SKILL.md.
+3. Perform the task and inspect the result.
+4. Report evidence, limitations and next actions.
+
+## Failure recovery
+
+Explain what to do when dependencies, access or validation fail.
+
+## Output
+
+Define the output contract and link a reproducible example.

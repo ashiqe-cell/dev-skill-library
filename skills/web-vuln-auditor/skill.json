@@ -2,7 +2,7 @@
   "name": "web-vuln-auditor",
   "display_name": "Web Vulnerability Auditor",
   "description": "Passively review public websites for browser-visible security weaknesses, privacy risks, exposed configuration, and SEO spam indicators.",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "classification": "company-authored",
   "maintainer": "ashiqevm0496",
   "license": "MIT",
